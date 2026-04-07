@@ -3,346 +3,277 @@
 <head>
 <meta charset="UTF-8">
 <title>Hoja 2 – Casos de Uso</title>
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
-  body {
-    background: #f5f3ee;
-    font-family: 'Source Sans 3', sans-serif;
-    color: #1a1a1a;
-    min-height: 100vh;
-    padding: 48px 40px;
-  }
+body{
+background:#f5f3ee;
+font-family:'Source Sans 3',sans-serif;
+color:#1a1a1a;
+padding:48px 40px;
+}
 
-  .header {
-    border-left: 5px solid #1a3a6b;
-    padding-left: 20px;
-    margin-bottom: 36px;
-  }
-  .header-tag {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #1a3a6b;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-  .header h1 {
-    font-family: 'Lora', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #0d1f3c;
-  }
-  .header p {
-    margin-top: 8px;
-    font-size: 0.9rem;
-    color: #5a6a7e;
-    font-weight: 300;
-  }
+/* HEADER */
 
-  .def-box {
-    background: #eef2f8;
-    border-left: 4px solid #1a3a6b;
-    border-radius: 0 6px 6px 0;
-    padding: 14px 18px;
-    margin-bottom: 32px;
-    font-size: 0.83rem;
-    color: #2a3a4e;
-    line-height: 1.6;
-  }
-  .def-box span { font-weight: 600; color: #1a3a6b; }
+.header{
+border-left:5px solid #1a3a6b;
+padding-left:20px;
+margin-bottom:30px;
+}
 
-  .section-title {
-    font-family: 'Lora', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: #0d1f3c;
-    margin: 28px 0 14px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .section-title .stag {
-    font-size: 0.65rem;
-    font-family: 'Source Sans 3', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 20px;
-  }
-  .section-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: #cdd5e0;
-  }
+.header-tag{
+font-size:.7rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+color:#1a3a6b;
+font-weight:600;
+}
 
-  /* UC TABLE */
-  .uc-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid #dde3ec;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    margin-bottom: 8px;
-    font-size: 0.82rem;
-  }
-  .uc-table thead tr th {
-    padding: 10px 14px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: #fff;
-  }
-  .uc-table td {
-    padding: 11px 14px;
-    border-bottom: 1px solid #edf0f5;
-    color: #2a3a4e;
-    vertical-align: top;
-    line-height: 1.55;
-  }
-  .uc-table tr:last-child td { border-bottom: none; }
-  .uc-table tr:hover td { background: #f8fafc; }
+.header h1{
+font-family:'Lora',serif;
+font-size:2rem;
+font-weight:700;
+color:#0d1f3c;
+}
 
-  .uc-id {
-    font-family: 'Lora', serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
-  .uc-name { font-weight: 600; color: #0d1f3c; }
-  .uc-desc { color: #4a5a6e; font-size: 0.79rem; }
-  .uc-pre { color: #6a7a8e; font-size: 0.77rem; font-style: italic; }
-  .uc-post { color: #6a7a8e; font-size: 0.77rem; font-style: italic; }
+.header p{
+font-size:.9rem;
+color:#5a6a7e;
+margin-top:6px;
+}
 
-  /* SECTION colors */
-  .thead-cliente { background: #1a3a6b; }
-  .thead-admin   { background: #0f6b3a; }
-  .thead-ext     { background: #8a5f00; }
+/* INTRO */
 
-  .badge {
-    display: inline-block;
-    font-size: 0.6rem;
-    font-weight: 700;
-    padding: 1px 7px;
-    border-radius: 20px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    vertical-align: middle;
-  }
-  .badge-c { background: #e8eef7; color: #1a3a6b; }
-  .badge-a { background: #e6f4ec; color: #0f6b3a; }
-  .badge-e { background: #fef8e6; color: #8a5f00; }
+.intro{
+background:#fff;
+border:1px solid #dde3ec;
+border-radius:8px;
+padding:18px 22px;
+margin-bottom:28px;
+font-size:.88rem;
+line-height:1.7;
+color:#3a4a5e;
+}
 
-  /* SUMMARY */
-  .summary-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-top: 28px;
-    margin-bottom: 14px;
-  }
-  .sum-card {
-    background: #fff;
-    border: 1px solid #dde3ec;
-    border-radius: 8px;
-    padding: 16px 18px;
-    text-align: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-  .sum-num {
-    font-family: 'Lora', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-  .sum-lbl {
-    font-size: 0.72rem;
-    color: #6a7a8e;
-    margin-top: 5px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
+/* DEFINITION */
 
-  .footer {
-    margin-top: 40px;
-    padding-top: 16px;
-    border-top: 1px solid #cdd5e0;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.7rem;
-    color: #8a9ab0;
-  }
+.def-box{
+background:#eef2f8;
+border-left:4px solid #1a3a6b;
+padding:14px 18px;
+margin-bottom:30px;
+font-size:.83rem;
+color:#2a3a4e;
+}
+
+.def-box span{
+font-weight:600;
+color:#1a3a6b;
+}
+
+/* TABLE */
+
+.uc-table{
+width:100%;
+border-collapse:collapse;
+background:#fff;
+border-radius:8px;
+overflow:hidden;
+border:1px solid #dde3ec;
+font-size:.82rem;
+}
+
+.uc-table thead{
+background:#1a3a6b;
+color:white;
+}
+
+.uc-table th{
+padding:10px 14px;
+text-align:left;
+font-size:.72rem;
+letter-spacing:.05em;
+text-transform:uppercase;
+}
+
+.uc-table td{
+padding:10px 14px;
+border-bottom:1px solid #edf0f5;
+vertical-align:top;
+}
+
+.uc-id{
+font-family:'Lora',serif;
+font-weight:700;
+}
+
+.uc-name{
+font-weight:600;
+color:#0d1f3c;
+}
+
+.uc-desc{
+color:#4a5a6e;
+}
+
+.uc-pre,.uc-post{
+font-style:italic;
+color:#6a7a8e;
+font-size:.77rem;
+}
+
+.footer{
+margin-top:35px;
+padding-top:14px;
+border-top:1px solid #cdd5e0;
+display:flex;
+justify-content:space-between;
+font-size:.7rem;
+color:#8a9ab0;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="header">
-  <div class="header-tag">Laboratorio · Casos de Uso · UML</div>
-  <h1>Hoja 2 — Casos de Uso</h1>
-  <p>Sistema: Aplicación Digital Bancaria — Análisis y Diseño de Sistemas</p>
+<div class="header-tag">Laboratorio · UML</div>
+<h1>Hoja 2 — Casos de Uso</h1>
+<p>Sistema Analizado: Plataforma de Banca Digital</p>
+</div>
+
+<div class="intro">
+En esta sección se identifican y documentan los principales casos de uso del sistema de banca digital. 
+Cada caso de uso describe una interacción específica entre los actores del sistema y la plataforma 
+con el objetivo de cumplir una funcionalidad del negocio.
 </div>
 
 <div class="def-box">
-  <span>Definición:</span> Un <em>caso de uso</em> describe una interacción específica entre un actor y el sistema para lograr un objetivo concreto. Cada caso de uso tiene un nombre, actor(es) involucrado(s), precondición y postcondición.
-</div>
-
-<!-- CLIENTE -->
-<div class="section-title">
-  <span class="stag" style="background:#e8eef7; color:#1a3a6b;">👤 Cliente</span>
-  Casos de uso — Actor: Cliente
+<span>Definición UML:</span>
+Un <em>caso de uso</em> describe una interacción entre un actor y el sistema para lograr un objetivo específico. 
+Cada caso de uso incluye un identificador, actor asociado, descripción funcional, precondición y postcondición.
 </div>
 
 <table class="uc-table">
-  <thead>
-    <tr class="thead-cliente">
-      <th style="width:60px">ID</th>
-      <th style="width:180px">Caso de Uso</th>
-      <th>Descripción</th>
-      <th style="width:160px">Precondición</th>
-      <th style="width:160px">Postcondición</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><div class="uc-id" style="color:#1a3a6b">CU-01</div></td>
-      <td><div class="uc-name">Iniciar sesión</div><span class="badge badge-c">Cliente</span></td>
-      <td class="uc-desc">El cliente accede al sistema ingresando sus credenciales (usuario y contraseña) de forma segura para autenticarse en la plataforma.</td>
-      <td class="uc-pre">El cliente tiene una cuenta registrada y credenciales válidas.</td>
-      <td class="uc-post">El cliente accede al panel principal del sistema.</td>
-    </tr>
-    <tr>
-      <td><div class="uc-id" style="color:#1a3a6b">CU-02</div></td>
-      <td><div class="uc-name">Consultar saldo</div><span class="badge badge-c">Cliente</span></td>
-      <td class="uc-desc">El cliente visualiza el saldo disponible y/o total de una o más de sus cuentas bancarias en tiempo real.</td>
-      <td class="uc-pre">El cliente ha iniciado sesión exitosamente.</td>
-      <td class="uc-post">Se muestra el saldo actualizado de la cuenta seleccionada.</td>
-    </tr>
-    <tr>
-      <td><div class="uc-id" style="color:#1a3a6b">CU-03</div></td>
-      <td><div class="uc-name">Revisar historial de transacciones</div><span class="badge badge-c">Cliente</span></td>
-      <td class="uc-desc">El cliente consulta el registro cronológico de movimientos (débitos, créditos, transferencias) realizados en sus cuentas.</td>
-      <td class="uc-pre">El cliente ha iniciado sesión y posee al menos una cuenta activa.</td>
-      <td class="uc-post">Se despliega el historial de movimientos filtrable por fecha.</td>
-    </tr>
-    <tr>
-      <td><div class="uc-id" style="color:#1a3a6b">CU-04</div></td>
-      <td><div class="uc-name">Transferir dinero entre cuentas propias</div><span class="badge badge-c">Cliente</span></td>
-      <td class="uc-desc">El cliente transfiere fondos entre sus propias cuentas registradas dentro del banco.</td>
-      <td class="uc-pre">El cliente tiene al menos dos cuentas activas y saldo suficiente.</td>
-      <td class="uc-post">Los saldos de ambas cuentas se actualizan y se genera un comprobante.</td>
-    </tr>
-    <tr>
-      <td><div class="uc-id" style="color:#1a3a6b">CU-05</div></td>
-      <td><div class="uc-name">Transferir a otros clientes del banco</div><span class="badge badge-c">Cliente</span></td>
-      <td class="uc-desc">El cliente envía fondos a la cuenta de otro cliente registrado en el mismo banco.</td>
-      <td class="uc-pre">Cuenta de destino existe y está activa; cliente tiene saldo suficiente.</td>
-      <td class="uc-post">Se debita el monto de la cuenta origen y se acredita en la cuenta destino.</td>
-    </tr>
-    <tr>
-      <td><div class="uc-id" style="color:#1a3a6b">CU-06</div></td>
-      <td><div class="uc-name">Pagar servicios básicos</div><span class="badge badge-c">Cliente</span> <span class="badge badge-e">Empresa</span></td>
-      <td class="uc-desc">El cliente realiza el pago de servicios públicos (luz, agua, telefonía, internet) directamente desde la aplicación. El sistema interactúa con la empresa proveedora para validar y procesar el pago.</td>
-      <td class="uc-pre">El cliente tiene saldo suficiente y la empresa proveedora está integrada al sistema.</td>
-      <td class="uc-post">El pago queda registrado y la empresa proveedora confirma la transacción.</td>
-    </tr>
-  </tbody>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Caso de Uso</th>
+<th>Actor</th>
+<th>Descripción</th>
+<th>Precondición</th>
+<th>Postcondición</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td class="uc-id">CU-01</td>
+<td class="uc-name">Iniciar sesión</td>
+<td>Cliente</td>
+<td class="uc-desc">El cliente accede a la plataforma ingresando sus credenciales para autenticarse en el sistema.</td>
+<td class="uc-pre">El cliente posee una cuenta registrada.</td>
+<td class="uc-post">El usuario accede al panel principal.</td>
+</tr>
+
+<tr>
+<td class="uc-id">CU-02</td>
+<td class="uc-name">Consultar saldo</td>
+<td>Cliente</td>
+<td class="uc-desc">El cliente visualiza el saldo disponible de sus cuentas bancarias.</td>
+<td class="uc-pre">El cliente ha iniciado sesión.</td>
+<td class="uc-post">Se muestran los saldos actualizados.</td>
+</tr>
+
+<tr>
+<td class="uc-id">CU-03</td>
+<td class="uc-name">Consultar historial de transacciones</td>
+<td>Cliente</td>
+<td class="uc-desc">El cliente revisa el historial de movimientos de sus cuentas.</td>
+<td class="uc-pre">El cliente tiene al menos una cuenta activa.</td>
+<td class="uc-post">Se muestra el listado de transacciones.</td>
+</tr>
+
+<tr>
+<td class="uc-id">CU-04</td>
+<td class="uc-name">Transferir fondos entre cuentas propias</td>
+<td>Cliente</td>
+<td class="uc-desc">El cliente transfiere dinero entre sus propias cuentas registradas en el banco.</td>
+<td class="uc-pre">El cliente posee saldo suficiente.</td>
+<td class="uc-post">Se actualizan los saldos de ambas cuentas.</td>
+</tr>
+
+<tr>
+<td class="uc-id">CU-05</td>
+<td class="uc-name">Transferir fondos a otro cliente</td>
+<td>Cliente</td>
+<td class="uc-desc">El cliente envía dinero a otro cliente del mismo banco.</td>
+<td class="uc-pre">La cuenta destino existe.</td>
+<td class="uc-post">Se registra la transferencia.</td>
+</tr>
+
+<tr>
+<td class="uc-id">CU-06</td>
+<td class="uc-name">Pagar servicios públicos</td>
+<td>Cliente</td>
+<td class="uc-desc">El cliente paga servicios como electricidad, agua o internet mediante la plataforma.</td>
+<td class="uc-pre">El cliente tiene saldo suficiente.</td>
+<td class="uc-post">El sistema registra el pago.</td>
+</tr>
+
+<tr>
+<td class="uc-id">CU-07</td>
+<td class="uc-name">Gestionar usuarios</td>
+<td>Administrador</td>
+<td class="uc-desc">El administrador consulta y modifica información de usuarios.</td>
+<td class="uc-pre">Administrador autenticado.</td>
+<td class="uc-post">Datos del usuario actualizados.</td>
+</tr>
+
+<tr>
+<td class="uc-id">CU-08</td>
+<td class="uc-name">Bloquear o habilitar cuentas</td>
+<td>Administrador</td>
+<td class="uc-desc">El administrador controla el estado de las cuentas de clientes.</td>
+<td class="uc-pre">Cuenta registrada en el sistema.</td>
+<td class="uc-post">Estado de la cuenta actualizado.</td>
+</tr>
+
+<tr>
+<td class="uc-id">CU-09</td>
+<td class="uc-name">Supervisar operaciones</td>
+<td>Administrador</td>
+<td class="uc-desc">El administrador monitorea transacciones realizadas en el sistema.</td>
+<td class="uc-pre">Administrador autenticado.</td>
+<td class="uc-post">Registro de auditoría actualizado.</td>
+</tr>
+
+<tr>
+<td class="uc-id">CU-10</td>
+<td class="uc-name">Procesar pago de servicios</td>
+<td>Proveedor de Servicios</td>
+<td class="uc-desc">El proveedor valida y procesa la solicitud de pago enviada por el sistema.</td>
+<td class="uc-pre">El cliente inicia el pago.</td>
+<td class="uc-post">Pago confirmado o rechazado.</td>
+</tr>
+
+</tbody>
+
 </table>
-
-<!-- ADMINISTRADOR -->
-<div class="section-title">
-  <span class="stag" style="background:#e6f4ec; color:#0f6b3a;">🛡️ Administrador</span>
-  Casos de uso — Actor: Administrador del Sistema
-</div>
-
-<table class="uc-table">
-  <thead>
-    <tr class="thead-admin">
-      <th style="width:60px">ID</th>
-      <th style="width:220px">Caso de Uso</th>
-      <th>Descripción</th>
-      <th style="width:160px">Precondición</th>
-      <th style="width:160px">Postcondición</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><div class="uc-id" style="color:#0f6b3a">CU-07</div></td>
-      <td><div class="uc-name">Gestionar información de usuarios</div><span class="badge badge-a">Admin</span></td>
-      <td class="uc-desc">El administrador puede ver, editar y actualizar la información personal y bancaria de los usuarios registrados en la plataforma.</td>
-      <td class="uc-pre">El administrador ha iniciado sesión con privilegios de administración.</td>
-      <td class="uc-post">La información del usuario queda actualizada en el sistema.</td>
-    </tr>
-    <tr>
-      <td><div class="uc-id" style="color:#0f6b3a">CU-08</div></td>
-      <td><div class="uc-name">Habilitar / bloquear cuentas</div><span class="badge badge-a">Admin</span></td>
-      <td class="uc-desc">El administrador activa o suspende cuentas de clientes según criterios de seguridad, sospecha de fraude o solicitud del cliente.</td>
-      <td class="uc-pre">La cuenta del usuario existe en el sistema.</td>
-      <td class="uc-post">El estado de la cuenta cambia a activo o bloqueado según la acción.</td>
-    </tr>
-    <tr>
-      <td><div class="uc-id" style="color:#0f6b3a">CU-09</div></td>
-      <td><div class="uc-name">Supervisar operaciones de la plataforma</div><span class="badge badge-a">Admin</span></td>
-      <td class="uc-desc">El administrador monitorea en tiempo real todas las transacciones y operaciones realizadas para garantizar la seguridad y el cumplimiento de las políticas internas del banco.</td>
-      <td class="uc-pre">El administrador está autenticado con privilegios de supervisión.</td>
-      <td class="uc-post">Se genera un registro de auditoría de las operaciones revisadas.</td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- EMPRESA EXTERNA -->
-<div class="section-title">
-  <span class="stag" style="background:#fef8e6; color:#8a5f00;">🏢 Empresa Externa</span>
-  Casos de uso — Actor: Empresa Proveedora
-</div>
-
-<table class="uc-table">
-  <thead>
-    <tr class="thead-ext">
-      <th style="width:60px">ID</th>
-      <th style="width:220px">Caso de Uso</th>
-      <th>Descripción</th>
-      <th style="width:160px">Precondición</th>
-      <th style="width:160px">Postcondición</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><div class="uc-id" style="color:#8a5f00">CU-10</div></td>
-      <td><div class="uc-name">Validar y procesar pago de servicios</div><span class="badge badge-e">Externo</span></td>
-      <td class="uc-desc">La empresa proveedora recibe la solicitud de pago enviada por el sistema bancario, valida la referencia o deuda del cliente y confirma o rechaza el procesamiento del pago.</td>
-      <td class="uc-pre">El cliente ha iniciado el pago de un servicio (CU-06) y el sistema envía la solicitud a la empresa.</td>
-      <td class="uc-post">La empresa confirma el pago; el sistema registra la transacción como completada o fallida.</td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- SUMMARY -->
-<div class="summary-row">
-  <div class="sum-card">
-    <div class="sum-num" style="color:#1a3a6b">6</div>
-    <div class="sum-lbl">Casos de uso del Cliente</div>
-  </div>
-  <div class="sum-card">
-    <div class="sum-num" style="color:#0f6b3a">3</div>
-    <div class="sum-lbl">Casos de uso del Administrador</div>
-  </div>
-  <div class="sum-card">
-    <div class="sum-num" style="color:#8a5f00">1</div>
-    <div class="sum-lbl">Casos de uso Externos</div>
-  </div>
-</div>
 
 <div class="footer">
-  <span>Laboratorio — Casos de Uso UML · Hoja 2 de 3</span>
-  <span>Sistema: Aplicación Digital Bancaria · Total: 10 casos de uso</span>
+<span>Laboratorio UML — Casos de Uso</span>
+<span>Hoja 2 de 3 · Total: 10 casos de uso</span>
 </div>
 
 </body>
