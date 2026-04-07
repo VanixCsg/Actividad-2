@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Hoja 1 – Actores</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f5f3ee;
+    font-family: 'Source Sans 3', sans-serif;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 48px 40px;
+  }
+
+  /* HEADER */
+  .header {
+    border-left: 5px solid #1a3a6b;
+    padding-left: 20px;
+    margin-bottom: 36px;
+  }
+  .header-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #1a3a6b;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0d1f3c;
+    line-height: 1.2;
+  }
+  .header p {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #5a6a7e;
+    font-weight: 300;
+  }
+
+  /* INTRO */
+  .intro {
+    background: #fff;
+    border: 1px solid #dde3ec;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-bottom: 32px;
+    font-size: 0.88rem;
+    color: #3a4a5e;
+    line-height: 1.7;
+  }
+  .intro strong { color: #1a3a6b; }
+
+  /* DEFINITION BOX */
+  .def-box {
+    background: #eef2f8;
+    border-left: 4px solid #1a3a6b;
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-bottom: 32px;
+    font-size: 0.83rem;
+    color: #2a3a4e;
+    line-height: 1.6;
+  }
+  .def-box span { font-weight: 600; color: #1a3a6b; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0d1f3c;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #cdd5e0;
+  }
+
+  /* ACTOR CARDS */
+  .actors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+
+  .actor-card {
+    background: #fff;
+    border: 1px solid #dde3ec;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: box-shadow 0.2s;
+  }
+  .actor-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+
+  .actor-card-top {
+    padding: 22px 22px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    border-bottom: 1px solid #edf0f5;
+  }
+
+  .actor-icon-wrap {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    flex-shrink: 0;
+  }
+
+  .actor-meta { flex: 1; }
+  .actor-type-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+  }
+  .actor-name {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #0d1f3c;
+    line-height: 1.2;
+  }
+
+  .actor-card-body {
+    padding: 16px 22px 20px;
+  }
+  .actor-desc {
+    font-size: 0.82rem;
+    color: #4a5a6e;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .actor-responsibilities {
+    list-style: none;
+  }
+  .actor-responsibilities li {
+    font-size: 0.78rem;
+    color: #3a4a5e;
+    padding: 4px 0 4px 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .actor-responsibilities li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    font-size: 0.7rem;
+  }
+
+  /* COLORS per actor */
+  .card-cliente .actor-card-top { border-top: 4px solid #1a3a6b; }
+  .card-cliente .actor-icon-wrap { background: #e8eef7; }
+  .card-cliente .actor-type-tag { background: #e8eef7; color: #1a3a6b; }
+  .card-cliente .actor-responsibilities li::before { color: #1a3a6b; }
+
+  .card-admin .actor-card-top { border-top: 4px solid #0f6b3a; }
+  .card-admin .actor-icon-wrap { background: #e6f4ec; }
+  .card-admin .actor-type-tag { background: #e6f4ec; color: #0f6b3a; }
+  .card-admin .actor-responsibilities li::before { color: #0f6b3a; }
+
+  .card-ext .actor-card-top { border-top: 4px solid #8a5f00; }
+  .card-ext .actor-icon-wrap { background: #fef8e6; }
+  .card-ext .actor-type-tag { background: #fef8e6; color: #8a5f00; }
+  .card-ext .actor-responsibilities li::before { color: #8a5f00; }
+
+  /* SUMMARY TABLE */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dde3ec;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .summary-table thead tr {
+    background: #1a3a6b;
+    color: #fff;
+  }
+  .summary-table th {
+    padding: 11px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .summary-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #edf0f5;
+    color: #2a3a4e;
+    vertical-align: middle;
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:hover td { background: #f8fafc; }
+
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid #cdd5e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #8a9ab0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-tag">Laboratorio · Casos de Uso · UML</div>
+  <h1>Hoja 1 — Identificación de Actores</h1>
+  <p>Sistema: Aplicación Digital Bancaria — Análisis y Diseño de Sistemas</p>
+</div>
+
+<div class="intro">
+  Un <strong>banco comercial</strong> desea desarrollar una aplicación digital que permita a sus clientes gestionar sus cuentas sin acudir físicamente a una sucursal. Se identificaron los siguientes actores que interactúan con el sistema.
+</div>
+
+<div class="def-box">
+  <span>Definición:</span> Un <em>actor</em> en un diagrama de casos de uso representa cualquier entidad externa (persona, organización o sistema) que interactúa directamente con el sistema en desarrollo. Los actores pueden ser <strong>primarios</strong> (inician la interacción) o <strong>externos/secundarios</strong> (responden a solicitudes del sistema).
+</div>
+
+<div class="section-title">Actores identificados</div>
+
+<div class="actors-grid">
+
+  <!-- CLIENTE -->
+  <div class="actor-card card-cliente">
+    <div class="actor-card-top">
+      <div class="actor-icon-wrap">👤</div>
+      <div class="actor-meta">
+        <div class="actor-type-tag">Actor Primario</div>
+        <div class="actor-name">Cliente</div>
+      </div>
+    </div>
+    <div class="actor-card-body">
+      <div class="actor-desc">
+        Persona natural que posee una o más cuentas en el banco y utiliza la aplicación para realizar operaciones bancarias desde dispositivos móviles o computadoras.
+      </div>
+      <ul class="actor-responsibilities">
+        <li>Inicia sesión con credenciales seguras</li>
+        <li>Consulta y gestiona sus cuentas</li>
+        <li>Realiza transferencias y pagos</li>
+        <li>Revisa su historial de transacciones</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ADMINISTRADOR -->
+  <div class="actor-card card-admin">
+    <div class="actor-card-top">
+      <div class="actor-icon-wrap">🛡️</div>
+      <div class="actor-meta">
+        <div class="actor-type-tag">Actor Primario</div>
+        <div class="actor-name">Administrador del Sistema</div>
+      </div>
+    </div>
+    <div class="actor-card-body">
+      <div class="actor-desc">
+        Empleado del banco con privilegios elevados que supervisa y controla el funcionamiento interno de la plataforma, velando por la seguridad y el cumplimiento de políticas institucionales.
+      </div>
+      <ul class="actor-responsibilities">
+        <li>Gestiona la información de los usuarios</li>
+        <li>Habilita o bloquea cuentas según necesidad</li>
+        <li>Supervisa todas las operaciones realizadas</li>
+        <li>Garantiza la seguridad de la plataforma</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EMPRESA EXTERNA -->
+  <div class="actor-card card-ext">
+    <div class="actor-card-top">
+      <div class="actor-icon-wrap">🏢</div>
+      <div class="actor-meta">
+        <div class="actor-type-tag">Actor Externo</div>
+        <div class="actor-name">Empresa Proveedora de Servicios Públicos</div>
+      </div>
+    </div>
+    <div class="actor-card-body">
+      <div class="actor-desc">
+        Entidad externa (empresas de electricidad, agua, telefonía, internet) que se integra con el sistema bancario para validar y procesar los pagos de servicios realizados por los clientes.
+      </div>
+      <ul class="actor-responsibilities">
+        <li>Recibe solicitudes de pago de servicios</li>
+        <li>Valida la deuda o referencia del cliente</li>
+        <li>Confirma y procesa el pago realizado</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="section-title">Tabla resumen de actores</div>
+
+<table class="summary-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Actor</th>
+      <th>Tipo</th>
+      <th>Rol en el sistema</th>
+      <th>Interacción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><span class="dot" style="background:#1a3a6b"></span><strong>Cliente</strong></td>
+      <td>Primario</td>
+      <td>Usuario final de los servicios bancarios</td>
+      <td>Directa — inicia las operaciones</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><span class="dot" style="background:#0f6b3a"></span><strong>Administrador del Sistema</strong></td>
+      <td>Primario</td>
+      <td>Control, supervisión y gestión interna</td>
+      <td>Directa — gestiona la plataforma</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><span class="dot" style="background:#8a5f00"></span><strong>Empresa Proveedora de Servicios</strong></td>
+      <td>Externo</td>
+      <td>Procesamiento de pagos de servicios públicos</td>
+      <td>Indirecta — responde a solicitudes</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="footer">
+  <span>Laboratorio — Casos de Uso UML · Hoja 1 de 3</span>
+  <span>Sistema: Aplicación Digital Bancaria</span>
+</div>
+
+</body>
+</html>
